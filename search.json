@@ -4,6 +4,13 @@
     "href": "about.html",
     "title": "About",
     "section": "",
+    "text": "I’m working on projects related to AI. \nMy background is in theoretical mathematics. My research interests include higher category theory, homological algebra and related fields. I’ve worked on monads, monoidal categories, tensor geometry, triangulated categories and Hochschild cohomology. I’m also generally fascinated by simplicial sets.\nMy PhD thesis from NTNU in Trondheim, Norway, completed in 2018, was entitled Hochschild cohomology, monoidal categories and quantum complete intersections. I was a PhD student at NTNU from 2014 to 2018.\nBefore that, I did an MSc in Applied Physics and Mathematics, with a main profile in Industrial Mathematics. But, as I sometimes say humorously, there wasn’t much that was applied or industrial left by the time I finished; my thesis was about ∞-categories and triangulated categories, and was entitled The homotopy theory of ∞-categories.\nFrom 2018 to 2025, I worked as an Associate Professor, first at NTNU and then at HiØ in Fredrikstad, Norway, a university college about half an hour south of Oslo. My main responsibilities were teaching undergraduate courses and related activities.\nAt NTNU, I taught seminar-based courses and developed digital learning resources in the pre-pandemic era. The students were mainly teachers undertaking continuing education and talented high school students.\nAt HiØ, I taught mathematics courses for engineering students at bachelor’s level and physics for the pre-engineering programme. I was also responsible for interdisciplinary projects, which were a focus area. I completed several projects aimed at developing and improving learning and teaching practice. I plan to write more about these projects here in the future.\nMore is coming to this site!"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
     "text": "More to come about this site"
   },
   {
@@ -11,6 +18,6 @@
     "href": "index.html",
     "title": "Magnus Hellstrøm-Finnsen",
     "section": "",
-    "text": "Ph.D. in Mathematics | Oslo, Norway\nContact: mhellstroemfinnsen@gmail.com"
+    "text": "Mathematician | Oslo, Norway\nContact: mhellstroemfinnsen@gmail.com\nI’m currently exploring projects related to AI and ML. \nI plan to share projects, experiments, notes, interesting stuff, and other things here as I go. \nMy background is in mathematical research and university teaching, see About for more."
   }
 ]
