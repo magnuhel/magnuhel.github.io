@@ -1,0 +1,18 @@
+---
+title: "Magnus Hellstrøm-Finnsen"
+---
+
+Mathematician | Oslo, Norway 
+
+**Contact:** [mhellstroemfinnsen@gmail.com](mailto:mhellstroemfinnsen@gmail.com)
+
+I'm currently exploring projects related to AI and ML. <!--working on projects related to AI. , from a mathematical perspective. -->
+
+I plan to share projects, experiments, notes, interesting stuff, and other things here as I go. <!-- here as I go. --> 
+
+My background is in mathematical research and university teaching, see [About](about.qmd) for more. 
+
+<!-- This is a Quarto website.
+
+%To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+-->
