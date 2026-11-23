@@ -1,5 +1,8 @@
 project:
   type: website
+  resources:
+    - googleecba9156f04500b9.html
+
 
 website:
   title: "Magnus Hellstrøm-Finnsen"
@@ -7,7 +10,13 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - teaching/index.qmd
       - about.qmd
+    right: 
+      - icon: github
+        href: https://github.com/magnuhel 
+        aria-label: GitHub 
+
 
 format:
   html:
