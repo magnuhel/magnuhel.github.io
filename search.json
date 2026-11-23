@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "teaching/index.html",
+    "href": "teaching/index.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nDescription\n\n\n\nDate\n\n\n\n\n\n\n\n\nCalculus 1\n\n\nNumerical methods in Python: the bisection method, Newton’s method and more to come\n\n\nNov 23, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -19,5 +26,40 @@
     "title": "Magnus Hellstrøm-Finnsen",
     "section": "",
     "text": "Mathematician | Oslo, Norway\nContact: mhellstroemfinnsen@gmail.com\nI’m currently exploring projects related to AI and ML. \nI plan to share projects, experiments, notes, interesting stuff, and other things here as I go. \nMy background is in mathematical research and university teaching, see About for more."
+  },
+  {
+    "objectID": "teaching/calculus_1.html",
+    "href": "teaching/calculus_1.html",
+    "title": "Calculus 1",
+    "section": "",
+    "text": "Here I share some Python code I used in calculus 1 (engineering mathematics / ingeniørmatematikk) while teaching at HiØ."
+  },
+  {
+    "objectID": "teaching/calculus_1.html#the-bisection-method-midtpunktmetoden",
+    "href": "teaching/calculus_1.html#the-bisection-method-midtpunktmetoden",
+    "title": "Calculus 1",
+    "section": "The bisection method / Midtpunktmetoden",
+    "text": "The bisection method / Midtpunktmetoden\nI will first share the result of the coding I did live in class, before I present some improvements.\n\nExample 1\nLet \\(f(x)\\) be the function\n\\[\nf(x)=\\cos(x)-x\n\\]\nFind \\(x\\) such that \\(f(x)\\approx 0\\).\n\nimport math\n\n#import matplotlib.pyplot as plt\nimport numpy as np\n\n#MIDTPUNKTMETODEN f(x) kontinuerlig på [a,b] f(a) og f(b) forskjellige fortegn \n#Bisection method, f(x) continuous on [a,b], f(a) og f(b) opposite signs  \n\ndef f(x): \n    return math.cos(x) - x\n    #return math.exp(x)-math.sin(x)-10\n\na = 0\nb = math.pi #3.1415926535 8979323846\n#b=4\n\n#t = 1e-7\nt=1e-3\n\nif ( f(a) &gt; 0 and f(b) &gt; 0 ) or ( f(a) &lt; 0 and f(b) &lt; 0 ):\n    print(\"Kriteriene for skjæringssetningen er ikke oppfylt\")\n    exit()\n\nwhile b - a &gt; t :\n    c = (b+a)/2 #midtpunkt\n\n    if ( f(a) &gt; 0 and f(c) &lt; 0 ) or ( f(a) &lt; 0 and f(c) &gt; 0 ): #f(a) og f(c) forskjellig fortegn\n        b = c\n\n    else:\n        a = c\n\n    print(a,b)\n\n    #print(a,b)\n\n0 1.5707963267948966\n0 0.7853981633974483\n0.39269908169872414 0.7853981633974483\n0.5890486225480862 0.7853981633974483\n0.6872233929727672 0.7853981633974483\n0.7363107781851077 0.7853981633974483\n0.7363107781851077 0.760854470791278\n0.7363107781851077 0.7485826244881928\n0.7363107781851077 0.7424467013366502\n0.7363107781851077 0.739378739760879\n0.7378447589729933 0.739378739760879\n0.7386117493669362 0.739378739760879\n\n\n\n\nExample 2\nLet’s try another function.\nLet \\(f(x)\\) be the function\n\\[\nf(x)=e^x-\\sin(x)-10\n\\]\nFind \\(x\\) such that \\(f(x)\\approx 0\\).\n\nimport math\n\n#MIDTPUNKTMETODEN f(x) kontinuerlig på [a,b] f(a) og f(b) forskjellige fortegn \n\ndef f(x): \n    return math.exp(x)-math.sin(x)-10\n\na = 0\nb=4\n\n#t = 1e-7 \nt = 1e-3 \n\n\nif ( f(a) &gt; 0 and f(b) &gt; 0 ) or ( f(a) &lt; 0 and f(b) &lt; 0 ):\n    print(\"Kriteriene for skjæringssetningen er ikke oppfylt\")\n    exit()\n\nwhile b - a &gt; t :\n    c = (b+a)/2 #midtpunkt\n\n    if ( f(a) &gt; 0 and f(c) &lt; 0 ) or ( f(a) &lt; 0 and f(c) &gt; 0 ): #f(a) og f(c) forskjellig fortegn\n        b = c\n\n    else:\n        a = c\n\n    print(\"a=\",a,\"b=\",b)\n\n    \n\na= 2.0 b= 4\na= 2.0 b= 3.0\na= 2.0 b= 2.5\na= 2.25 b= 2.5\na= 2.25 b= 2.375\na= 2.3125 b= 2.375\na= 2.34375 b= 2.375\na= 2.359375 b= 2.375\na= 2.3671875 b= 2.375\na= 2.3671875 b= 2.37109375\na= 2.369140625 b= 2.37109375\na= 2.369140625 b= 2.3701171875\n\n\n\n\nImprovement\nUsing functions improves the code above.\n\nimport math\n\ndef bisec(f,a,b,tol=1e-3,verbose=False): #b-a&gt;0 , f continuous , f monotone =&gt; unique solution  \n\n    #Safety checks \n    if f(a) == 0: return a\n    if f(b) == 0: return b \n    if f(a)*f(b)&gt;0: raise ValueError(\"f(a) and f(b) must have opposite signs\")\n\n    while b-a &gt; tol: # bisects until tol \n        c=(a+b)/2 #midpoint \n        if f(c) == 0: return c \n        if f(a)*f(c)&lt;0: b=c #f(a) and f(c) on opposite sides\n        else: a=c \n        if verbose: print(\"a=\",a,\"b=\",b)\n    return (a+b)/2 #returning midpoint, \"for free\" haha \n\ndef g(x): #Ex 1\n    return math.cos(x) - x\ndef h(x): #Ex 2\n    return math.exp(x)-math.sin(x)-10 \n\n#Example 1: \nprint(bisec(g,0,math.pi))\n\n#Example 2: \nprint(bisec(h,0,4))\n\n0.7389952445639076\n2.36962890625"
+  },
+  {
+    "objectID": "teaching/calculus_1.html#newtons-method",
+    "href": "teaching/calculus_1.html#newtons-method",
+    "title": "Calculus 1",
+    "section": "Newton’s method",
+    "text": "Newton’s method\n\nExample 1\nLet \\(f(x)=\\cos(x)-x\\). Find \\(x\\) such that \\(f(x)\\approx 0\\).\n\nimport math\n\ndef f(x):\n    return math.cos(x)-x\n\ndef df(x):\n    return -math.sin(x)-1\n\nx = 0\n\nwhile abs(f(x))&gt;1e-8:\n    x=x-f(x)/df(x)\n    print(\"x=\",x,\"f(x)=\",f(x))\n\nx= 1.0 f(x)= -0.45969769413186023\nx= 0.7503638678402439 f(x)= -0.018923073822117442\nx= 0.7391128909113617 f(x)= -4.6455898990771516e-05\nx= 0.739085133385284 f(x)= -2.847205804457076e-10\n\n\nNotice how quickly the method converges: only a few iterations!\n\n\nExample 2\n\\(f(x)=e^x-\\sin(x)-10\\)\n\nimport math\n\ndef f(x):\n    return math.exp(x)-math.sin(x)-10\n\ndef df(x):\n    return math.exp(x)-math.cos(x)\n\nx = 4 #x_0 , Skjæringssetningen [a=0 , b=4]\n\nwhile abs(f(x))&gt;1e-8:\n    x=x-f(x)/df(x)\n    print(\"x=\",x,\"f(x)=\",f(x))\n\nx= 3.179122531071673 f(x)= 14.063183595723402\nx= 2.6171562176465057 f(x)= 3.19599240555962\nx= 2.397686274537118 f(x)= 0.32053376169259806\nx= 2.370368514480842 f(x)= 0.004321615182549365\nx= 2.36999003607875 f(x)= 8.162931539601459e-07\nx= 2.3699899645624147 f(x)= 2.6645352591003757e-14\n\n\n\n\nExample 3\n\\(f(x)=\\ln(x)+x\\)\n\nimport math\n\ndef f(x):\n    return math.log(x)+x\n\ndef df(x):\n    return 1/x+1\n\nx = 1/math.e #x_0 , Skjæringssetningen [a=e^-1 , b=e]\n\nwhile abs(f(x))&gt;1e-8:\n    x=x-f(x)/df(x)\n    print(\"x=\",x,\"f(x)=\",f(x))\n\nx= 0.5378828427399902 f(x)= -0.08223166421828743\nx= 0.5666438120958665 f(x)= -0.0013805579189433148\nx= 0.5671431499772466 f(x)= -3.8804642443768245e-07\nx= 0.5671432904097727 f(x)= -3.0753177782116836e-14\n\n\n\n\nExample 4\nWe will not necessarily find the zero closest to our starting point \\(x_0\\). This can happen if we choose an \\(x_0\\) close to a critical point. Let’s illustrate that with the following example \\(f(x)=\\cos(x)\\):\n\nimport math\n\ndef f(x):\n    return math.cos(x)\n\ndef df(x): #derivert \n    return -math.sin(x)\n\nx = 1e-5 #very close to x=0\n\nwhile abs(f(x))&gt;1e-8:\n    x=x-f(x)/df(x)\n    print(\"x=\",x,\"f(x)=\",f(x))\n\nx= 100000.00000666667 f(x)= -0.9993610457414049\nx= 99972.03970071451 f(x)= 0.9615298481261265\nx= 99975.5399853313 f(x)= -0.8039014900903382\nx= 99976.8916198616 f(x)= 0.40575830107651034\nx= 99976.4476734773 f(x)= -0.02613506134342822\nx= 99976.47381746888 f(x)= 5.95409764695777e-06\nx= 99976.47381151479 f(x)= 6.908323912805144e-12\n\n\n\n\nImprovement\n\nimport math \n\ndef nm(f,df,x,tol=1e-8,verbose=False,max_it=50):\n    if f(x)==0: return x\n    if df(x)==0: raise ValueError(\"Newton step undefined\")\n    it=0\n\n    while abs(f(x))&gt;tol:\n        if it&gt;=max_it: raise RuntimeError(f\"no convergence after {max_it} iterations\")\n        #\n        x=x-f(x)/df(x) \n        #\n        if df(x)==0: raise ValueError(\"Newton step undefined\") \n        if verbose: print(\"x=\",x,\"f(x)=\",f(x))\n        it+=1\n\n    return x \n\n#Example 1 \ndef f1(x):\n    return math.cos(x)-x\ndef df1(x):\n    return -math.sin(x)-1\n\n#Example 2 \ndef f2(x):\n    return math.exp(x)-math.sin(x)-10\ndef df2(x):\n    return math.exp(x)-math.cos(x)\n\n#Example 3\ndef f3(x):\n    return math.log(x)+x\ndef df3(x):\n    return 1/x+1\n\n#Example 4 \ndef f4(x):\n    return math.cos(x)\ndef df4(x): \n    return -math.sin(x)\n\n#Example Maximal Iterations \ndef f5(x):\n    return x**3-2*x+2\ndef df5(x):\n    return 3*x**2-2\n\nprint(nm(f1,df1,0))\nprint(nm(f2,df2,4))\nprint(nm(f3,df3,1/math.e))\nprint(nm(f4,df4,1e-5))\n\n#Showcase for f5: it's cycling between 0 and 1 \n#print(nm(f5,df5,0,max_it=10,verbose=True))\ntry:\n    nm(f5, df5, 0, max_it=10, verbose=True)\nexcept RuntimeError as e:\n    print(\"Stopped:\", e)\n\n\n0.739085133385284\n2.3699899645624147\n0.5671432904097727\n99976.47381151479\nx= 1.0 f(x)= 1.0\nx= 0.0 f(x)= 2.0\nx= 1.0 f(x)= 1.0\nx= 0.0 f(x)= 2.0\nx= 1.0 f(x)= 1.0\nx= 0.0 f(x)= 2.0\nx= 1.0 f(x)= 1.0\nx= 0.0 f(x)= 2.0\nx= 1.0 f(x)= 1.0\nx= 0.0 f(x)= 2.0\nStopped: no convergence after 10 iterations"
+  },
+  {
+    "objectID": "teaching/calculus_1.html#numerical-integration",
+    "href": "teaching/calculus_1.html#numerical-integration",
+    "title": "Calculus 1",
+    "section": "Numerical integration",
+    "text": "Numerical integration"
+  },
+  {
+    "objectID": "teaching/calculus_1.html#eulers-method",
+    "href": "teaching/calculus_1.html#eulers-method",
+    "title": "Calculus 1",
+    "section": "Euler’s method",
+    "text": "Euler’s method"
   }
 ]

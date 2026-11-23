@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://magnuhel.github.io/teaching/index.html</loc>
+    <lastmod>2026-11-23T18:06:28.155Z</lastmod>
+  </url>
+  <url>
     <loc>https://magnuhel.github.io/about.html</loc>
     <lastmod>2026-09-06T16:51:53.925Z</lastmod>
   </url>
@@ -11,5 +15,9 @@
   <url>
     <loc>https://magnuhel.github.io/index.html</loc>
     <lastmod>2026-09-06T16:15:45.753Z</lastmod>
+  </url>
+  <url>
+    <loc>https://magnuhel.github.io/teaching/calculus_1.html</loc>
+    <lastmod>2026-11-23T18:11:09.506Z</lastmod>
   </url>
 </urlset>
